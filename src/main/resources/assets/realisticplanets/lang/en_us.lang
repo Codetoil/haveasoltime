@@ -1,7 +1,0 @@
-tile.sun_plasma.name=Sol Plasma
-fluid.sun_plasma=Sol Plasma
-star.Test Sun=Test Sun
-solarsystem.Test Sun=Test Sun
-planet.Test Planet=Test Planet
-death.attack.sunplasma=%1$s was boiled away by Sol's Plamsa
-death.attack.sunplasma_fireresistance=%1$s was boiled away by Sol's Plamsa

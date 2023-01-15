@@ -1,8 +1,8 @@
 [
 {
-  "modid": "realisticplanets",
-  "name": "Realistic Planets",
-  "description": "An add-on to galacticraft that adds realistic planets",
+  "modid": "haveasoltime",
+  "name": "Have a Sol Time",
+  "description": "An add-on to galacticraft that adds the star sol to the game.",
   "version": "${version}",
   "mcversion": "1.12.2",
   "url": "",
