@@ -1,4 +1,4 @@
-package io.github.codetoil.realisticplanets.module.sol;
+package io.github.codetoil.haveasoltime;
 
 import micdoodle8.mods.galacticraft.api.world.IGalacticraftWorldProvider;
 import micdoodle8.mods.galacticraft.core.Constants;

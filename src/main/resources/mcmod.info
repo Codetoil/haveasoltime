@@ -1,7 +1,7 @@
 [
 {
   "modid": "haveasoltime",
-  "name": "Have a Sol Time",
+  "name": "HaveASolTime",
   "description": "An add-on to galacticraft that adds the star sol to the game.",
   "version": "${version}",
   "mcversion": "1.12.2",
@@ -11,6 +11,9 @@
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [
+    "required-after:galacticraftcore",
+    "required-after:tothestars"
+  ]
 }
 ]

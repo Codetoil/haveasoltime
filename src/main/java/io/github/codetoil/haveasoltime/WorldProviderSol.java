@@ -1,7 +1,6 @@
-package io.github.codetoil.realisticplanets.module.sol;
+package io.github.codetoil.haveasoltime;
 
 import com.google.common.collect.Lists;
-import io.github.codetoil.realisticplanets.RPHelper;
 import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.WorldProviderSpace;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
@@ -19,7 +18,7 @@ public class WorldProviderSol extends WorldProviderSpace {
 
     @Override
     public DimensionType getDimensionType() {
-        return SolModule.dimSol;
+        return HaveASolTime.dimSol;
     }
 
     @Override
@@ -49,7 +48,7 @@ public class WorldProviderSol extends WorldProviderSpace {
 
     @Override
     public float getGravity() {
-        return (float) RPHelper.realGravityToGCGravity(28.0);
+        return (float) HSTHelper.realGravityToGCGravity(28.0);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class WorldProviderSol extends WorldProviderSpace {
 
     @Override
     public CelestialBody getCelestialBody() {
-        return SolModule.starSol;
+        return HaveASolTime.starSol;
     }
 
     @Override
@@ -96,7 +95,7 @@ public class WorldProviderSol extends WorldProviderSpace {
 
     @Override
     public List<Block> getSurfaceBlocks() {
-        return Lists.newArrayList(SolModule.blockSunPlasma);
+        return Lists.newArrayList(SolBlocks.blockSolPlasma);
     }
 
     @Override

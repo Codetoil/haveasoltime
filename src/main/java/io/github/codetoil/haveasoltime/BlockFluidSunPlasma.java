@@ -1,13 +1,11 @@
-package io.github.codetoil.realisticplanets.module.sol;
+package io.github.codetoil.haveasoltime;
 
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -24,8 +22,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BlockFluidSunPlasma extends BlockFluidClassic {
-    public static DamageSource deathSource = (new DamageSource("sunplasma")).setFireDamage();
-    public static DamageSource deathSourceFireResistance = (new DamageSource("sunplasma_fireresistance"));
+    public static DamageSource deathSource = (new DamageSource("sol_plasma")).setFireDamage();
     public static final float MAX_RESISTANCE = 1000.0F;
     private static final List<Integer> blacklist = new ArrayList<>();
 
@@ -68,16 +65,9 @@ public class BlockFluidSunPlasma extends BlockFluidClassic {
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-
-        if (entityIn.isImmuneToFire() || (entityIn instanceof EntityPlayer && (((EntityPlayer) entityIn).isPotionActive(Objects.requireNonNull(Potion.getPotionFromResourceLocation("minecraft:fire_resistance"))))))
-        {
-            entityIn.attackEntityFrom(deathSourceFireResistance, 50.0F);
-        } else
-        {
-            entityIn.attackEntityFrom(deathSource, 100.0F);
-        }
-        super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        entityIn.attackEntityFrom(deathSource, 100.0F);
+        super.onEntityCollision(worldIn, pos, state, entityIn);
     }
 
     @Override
@@ -126,27 +116,6 @@ public class BlockFluidSunPlasma extends BlockFluidClassic {
         else
         {
             world.setBlockToAir(pos);
-        }
-        for (EnumFacing rotation1 : EnumFacing.VALUES) {
-            for (EnumFacing rotation2 : EnumFacing.VALUES) {
-                if (rotation1 == rotation2) continue;
-                BlockPos pos1 = pos.offset(rotation1);
-                BlockPos pos2 = pos1.offset(rotation2);
-                IBlockState state1 = world.getBlockState(pos1);
-                IBlockState state2 = world.getBlockState(pos2);
-                Block block1 = state1.getBlock();
-                Block block2 = state2.getBlock();
-                scheduleUpdateIfNotBlacklisted(world, pos1, block1, 10);
-                scheduleUpdateIfNotBlacklisted(world, pos2, block2, 10);
-            }
-        }
-    }
-
-    public void scheduleUpdateIfNotBlacklisted(World world, BlockPos pos, Block block, int delay)
-    {
-        if (checkOk(world, pos)) // to prevent exponential ticking and invalid updates
-        {
-            world.scheduleUpdate(pos, block, delay);
         }
     }
 

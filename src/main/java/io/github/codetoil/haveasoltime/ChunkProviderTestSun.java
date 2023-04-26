@@ -1,4 +1,4 @@
-package io.github.codetoil.realisticplanets.module.sol;
+package io.github.codetoil.haveasoltime;
 
 import micdoodle8.mods.galacticraft.api.world.ChunkProviderBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -27,7 +27,7 @@ public class ChunkProviderTestSun extends ChunkProviderBase {
         flatGeneratorInfo.setBiome(Biome.getIdForBiome(Biomes.VOID));
         List<FlatLayerInfo> info = flatGeneratorInfo.getFlatLayers();
         info.add(new FlatLayerInfo(1, Blocks.BEDROCK));
-        info.add(new FlatLayerInfo(64, SolModule.blockSunPlasma));
+        info.add(new FlatLayerInfo(64, SolBlocks.blockSolPlasma));
         flatGeneratorInfo.updateLayers();
     }
 

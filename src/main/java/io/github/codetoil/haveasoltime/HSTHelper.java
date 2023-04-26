@@ -1,6 +1,7 @@
-package io.github.codetoil.realisticplanets;
+package io.github.codetoil.haveasoltime;
 
-public class RPHelper {
+public class HSTHelper
+{
     /**
      * Real Gravity    GC Gravity
      * 1.00            0.0

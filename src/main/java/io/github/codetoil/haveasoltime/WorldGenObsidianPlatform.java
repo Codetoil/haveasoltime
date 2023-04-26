@@ -1,4 +1,4 @@
-package io.github.codetoil.realisticplanets.module.sol;
+package io.github.codetoil.haveasoltime;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
